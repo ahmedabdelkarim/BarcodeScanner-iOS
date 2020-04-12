@@ -22,38 +22,40 @@ Custom control written in Swift 5 for scanning barcode, with demo project showin
             barcodeScanner.delegate = self
         }
         
-		//MARK: - Actions
-    	@IBAction func scanButtonClick(_ sender: Any) {
-        	if(barcodeScanner.isScanning) {
-            	barcodeScanner.stopScanning()
-        	}
-        	else {
-            	barcodeScanner.startScanning()
-        	}
-    	}
-		
-		@IBAction func changeCameraButtonClick(_ sender: Any) {
-        	if(barcodeScanner.camera == .backCamera) {
-            	barcodeScanner.camera = .frontCamera
-        	}
-        	else {
-            	barcodeScanner.camera = .backCamera
-        	}
-    	}
-		
-		//MARK: - Delegates
-    	func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String) {
-        	print("detected code: \(code)")
-   		 }
-    	
-    	func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner) {
-        	print("loaded but failed to detect code")
-    	}
-    	
-    	func barcodeScannerFailedToLoad(scanner: BarcodeScanner) {
-        	print("failed to load")
-    	}
+        //MARK: - Actions
+        @IBAction func scanButtonClick(_ sender: Any) {
+            if(barcodeScanner.isScanning) {
+                barcodeScanner.stopScanning()
+            }
+            else {
+                barcodeScanner.startScanning()
+            }
+        }
+        
+        @IBAction func changeCameraButtonClick(_ sender: Any) {
+            if(barcodeScanner.camera == .backCamera) {
+                barcodeScanner.camera = .frontCamera
+            }
+            else {
+                barcodeScanner.camera = .backCamera
+            }
+        }
+        
+        //MARK: - Delegates
+        func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String) {
+            print("detected code: \(code)")
+        }
+        
+        func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner) {
+            print("loaded but failed to detect code")
+        }
+        
+        func barcodeScannerFailedToLoad(scanner: BarcodeScanner) {
+            print("failed to load")
+        }
     }
+
+
 
 **Note:** In Xcode, add UIView on storyboard or xib file and set class as BarcodeScanner under Identity Inspector.
 
