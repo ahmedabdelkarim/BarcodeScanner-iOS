@@ -1,6 +1,6 @@
 
 # BarcodeScanner-iOS
-Custom control for scanning barcode, with demo project showing capabilities of BarcodeScanner control.
+Custom control written in Swift 5 for scanning barcode, with demo project showing capabilities of BarcodeScanner control.
 
 **BarcodeScanner:**
 * Written in Swift 5
