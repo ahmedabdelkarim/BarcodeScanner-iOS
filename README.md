@@ -1,10 +1,12 @@
 
 # BarcodeScanner-iOS
-BarcodeScanner  is an iOS custom control written in Xcode 11.2 and Swift 5 for scanning barcode, with demo project showing features of the control.
+BarcodeScanner is an iOS custom control written in Xcode 11.2 and Swift 5 for scanning barcode, with demo project showing features of the control.
 
 **BarcodeScanner:**
 * Written in Swift 5
-* Scans QR code [others in progress]
+* Scans QR code.
+* Scans EAN-13 code.
+* Supports scanning 10+ other barcode types.
 * Front & back camera support
 * Can change camera while scanning or stopped
 * Delegates to handle detected code, and errors
@@ -19,6 +21,8 @@ BarcodeScanner  is an iOS custom control written in Xcode 11.2 and Swift 5 for s
         //MARK: - Lifecycle
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            barcodeScanner.supportedTypes = [.qr, .ean13]
             barcodeScanner.delegate = self
         }
         
@@ -67,3 +71,5 @@ The demo project comes with a very simple interface, and interacts with vibratio
 ![2](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/2.jpg)
 
 ![3](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/3.jpg)
+
+![4](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/4.jpg)
