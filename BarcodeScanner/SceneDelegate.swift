@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  BarcodeScannerDemo
+//  BarcodeScanner
 //
 //  Created by Ahmed Abdelkarim on 1/29/20.
 //  Copyright © 2020 Ahmed Abdelkarim. All rights reserved.

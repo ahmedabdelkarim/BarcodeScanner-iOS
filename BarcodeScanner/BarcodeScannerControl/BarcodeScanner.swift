@@ -1,6 +1,6 @@
 //
 //  BarcodeScanner.swift
-//  BarScannerDemo
+//  BarcodeScanner
 //
 //  Created by Ahmed Abdelkarim on 1/29/20.
 //  Copyright © 2020 Ahmed Abdelkarim. All rights reserved.
@@ -11,27 +11,40 @@ import AVFoundation
 
 class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     //MARK: - Variables
-    private var captureSession: AVCaptureSession!
-    private var previewLayer: AVCaptureVideoPreviewLayer!
-    
+    /// Gets the current scanning state of barcode scanner.
     var isScanning:Bool {
         get {
             return captureSession != nil && captureSession!.isRunning
         }
     }
     
-    
-    //MARK: - Properties
+    /// The camera to use for scanning.
     var camera:ScannerCamera = .backCamera {
         didSet {
             updateScanningCamera()
         }
     }
+    
+    /// Types of barcode that the scanner will try to find during scanning. Note that the number of types affects performance of scanner, so for best possible performance support the required types only.
+    var supportedTypes:[AVMetadataObject.ObjectType] = [.qr] {
+           didSet {
+               initControl()
+           }
+       }
+    
+    /// Whether to vibrate the device when a code is detected, or not.
     var vibrateWhenCodeDetected:Bool = true
-    var delegate: BarcodeScannerDelegate?
+    
+    /// The delegate object of BarcodeScanner control.
+    var delegate:BarcodeScannerDelegate?
     
     
-    //MARK: - Overrides
+    //MARK: - Local Variables
+    private var captureSession: AVCaptureSession!
+    private var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    
+    //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         initControl()
@@ -52,7 +65,7 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     
     
     //MARK: - Functions
-    func startScanning() {
+    public func startScanning() {
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
             self.layer.addSublayer(previewLayer)
@@ -67,7 +80,7 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     
-    //MARK: - Private Functions
+    //MARK: - Local Functions
     private func initControl() {
         captureSession = AVCaptureSession()
         
@@ -84,7 +97,7 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
             captureSession.addOutput(metadataOutput)
             
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.qr]//Can make this configurable to support other formats
+            metadataOutput.metadataObjectTypes = supportedTypes
         }
         else {
             failedToLoad()
@@ -148,7 +161,9 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
         captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
+                return
+            }
             guard let stringValue = readableObject.stringValue
                 else {
                     failedToDetectCode()
@@ -176,19 +191,4 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
         captureSession = nil
         delegate?.barcodeScannerFailedToLoad(scanner: self)
     }
-}
-
-///The camera used to scan barcode.
-enum ScannerCamera {
-    case frontCamera
-    case backCamera
-}
-
-protocol BarcodeScannerDelegate {
-    ///The code was detected and extracted successfully.
-    func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String)
-    ///Scanner loaded, found encrypted image, but couldn't extract the string value.
-    func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner)
-    ///Couldn't load scanner.
-    func barcodeScannerFailedToLoad(scanner: BarcodeScanner)
 }

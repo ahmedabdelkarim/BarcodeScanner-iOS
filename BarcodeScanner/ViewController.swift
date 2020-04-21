@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  BarcodeScannerDemo
+//  BarcodeScanner
 //
 //  Created by Ahmed Abdelkarim on 1/29/20.
 //  Copyright © 2020 Ahmed Abdelkarim. All rights reserved.
@@ -9,7 +9,8 @@
 import UIKit
 import AVFoundation
 
-//TODO: add UI to change camera, and for vibration enabled/disabled
+//TODO: add UI to change vibration enabled/disabled
+//TODO: Quick actions to scan QR, scan EAN-13, scan any barcode, and share.
 
 class ViewController: UIViewController, BarcodeScannerDelegate {
     //MARK: - Outlets
@@ -24,6 +25,7 @@ class ViewController: UIViewController, BarcodeScannerDelegate {
         
         updateScanButtonState()
         
+        barcodeScanner.supportedTypes = [.qr, .ean13]
         barcodeScanner.delegate = self
         
         print("isScanning: \(barcodeScanner.isScanning)")
@@ -34,12 +36,12 @@ class ViewController: UIViewController, BarcodeScannerDelegate {
     func updateScanButtonState() {
         if(barcodeScanner.isScanning) {
             scanButton.setTitle("Stop", for: .normal)
-            scanButtonView.layer.borderColor = UIColor.red.cgColor
+            scanButtonView.layer.borderColor = UIColor.systemRed.cgColor
             scanButton.backgroundColor = .red
         }
         else {
             scanButton.setTitle("Scan", for: .normal)
-            scanButtonView.layer.borderColor = UIColor.green.cgColor
+            scanButtonView.layer.borderColor = UIColor.systemGreen.cgColor
             scanButton.backgroundColor = .green
         }
     }
@@ -77,7 +79,7 @@ class ViewController: UIViewController, BarcodeScannerDelegate {
     }
     
     
-    //MARK: - Delegates
+    //MARK: - BarcodeScannerDelegate
     func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String) {
         print("detected code: \(code)")
         print("isScanning: \(barcodeScanner.isScanning)")
