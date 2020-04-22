@@ -64,8 +64,6 @@ BarcodeScanner is an iOS custom control written in Xcode 11.2 and Swift 5 for sc
 
 The demo project comes with a very simple interface, and interacts with vibration.
 
-**User Interface and usage:**
+**User Interface and screenshots:**
 
-![1](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/1.jpg)        ![2](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/2.jpg)    ![3](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/3.jpg)  ![4](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/4.jpg)
-
-![5](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/5.jpg)
+![1](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/1.jpg)    ![2](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/2.jpg)    ![3](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/3.jpg)    ![4](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/4.jpg)    ![5](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/5.jpg)
