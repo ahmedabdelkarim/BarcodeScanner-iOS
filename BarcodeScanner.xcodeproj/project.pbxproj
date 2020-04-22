@@ -16,10 +16,11 @@
 		F537968323E203E400CD57C6 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F537968223E203E400CD57C6 /* BarcodeScanner.swift */; };
 		F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45C244F944100D79C5D /* ScannerCamera.swift */; };
 		F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */; };
+		F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F537966A23E2001900CD57C6 /* Barcode Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barcode Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F537966A23E2001900CD57C6 /* B-Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B-Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F537966D23E2001900CD57C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F537966F23E2001900CD57C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F537967123E2001900CD57C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +31,7 @@
 		F537968223E203E400CD57C6 /* BarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanner.swift; sourceTree = "<group>"; };
 		F555A45C244F944100D79C5D /* ScannerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCamera.swift; sourceTree = "<group>"; };
 		F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerDelegate.swift; sourceTree = "<group>"; };
+		F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItemHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 		F537966B23E2001900CD57C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F537966A23E2001900CD57C6 /* Barcode Scanner.app */,
+				F537966A23E2001900CD57C6 /* B-Scanner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,9 +64,9 @@
 		F537966C23E2001900CD57C6 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				F555A464244FAE8400D79C5D /* Modules */,
 				F555A45B244F942600D79C5D /* BarcodeScannerControl */,
-				F537967323E2001900CD57C6 /* Main.storyboard */,
-				F537967123E2001900CD57C6 /* ViewController.swift */,
+				F555A46A244FB20500D79C5D /* Helpers */,
 				F537966D23E2001900CD57C6 /* AppDelegate.swift */,
 				F537966F23E2001900CD57C6 /* SceneDelegate.swift */,
 				F537967623E2001A00CD57C6 /* Assets.xcassets */,
@@ -84,12 +86,45 @@
 			path = BarcodeScannerControl;
 			sourceTree = "<group>";
 		};
+		F555A464244FAE8400D79C5D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F555A465244FAE8C00D79C5D /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F555A465244FAE8C00D79C5D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F537967323E2001900CD57C6 /* Main.storyboard */,
+				F537967123E2001900CD57C6 /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F555A46A244FB20500D79C5D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F555A46B244FB20E00D79C5D /* Utilities */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F555A46B244FB20E00D79C5D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F537966923E2001900CD57C6 /* BarcodeScannerDemo */ = {
+		F537966923E2001900CD57C6 /* BarcodeScanner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F537967E23E2001A00CD57C6 /* Build configuration list for PBXNativeTarget "BarcodeScannerDemo" */;
+			buildConfigurationList = F537967E23E2001A00CD57C6 /* Build configuration list for PBXNativeTarget "BarcodeScanner" */;
 			buildPhases = (
 				F537966623E2001900CD57C6 /* Sources */,
 				F537966723E2001900CD57C6 /* Frameworks */,
@@ -99,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = BarcodeScannerDemo;
+			name = BarcodeScanner;
 			productName = QRScannerDemo;
-			productReference = F537966A23E2001900CD57C6 /* Barcode Scanner.app */;
+			productReference = F537966A23E2001900CD57C6 /* B-Scanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F537966923E2001900CD57C6 /* BarcodeScannerDemo */,
+				F537966923E2001900CD57C6 /* BarcodeScanner */,
 			);
 		};
 /* End PBXProject section */
@@ -159,6 +194,7 @@
 				F537966E23E2001900CD57C6 /* AppDelegate.swift in Sources */,
 				F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */,
 				F537968323E203E400CD57C6 /* BarcodeScanner.swift in Sources */,
+				F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */,
 				F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */,
 				F537967023E2001900CD57C6 /* SceneDelegate.swift in Sources */,
 			);
@@ -313,7 +349,7 @@
 				);
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ahmedabdelkarim.apps.BarcodeScanner;
-				PRODUCT_NAME = "Barcode Scanner";
+				PRODUCT_NAME = "B-Scanner";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -332,7 +368,7 @@
 				);
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ahmedabdelkarim.apps.BarcodeScanner;
-				PRODUCT_NAME = "Barcode Scanner";
+				PRODUCT_NAME = "B-Scanner";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -350,7 +386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F537967E23E2001A00CD57C6 /* Build configuration list for PBXNativeTarget "BarcodeScannerDemo" */ = {
+		F537967E23E2001A00CD57C6 /* Build configuration list for PBXNativeTarget "BarcodeScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F537967F23E2001A00CD57C6 /* Debug */,

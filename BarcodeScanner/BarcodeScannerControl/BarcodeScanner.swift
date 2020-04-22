@@ -27,10 +27,11 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     
     /// Types of barcode that the scanner will try to find during scanning. Note that the number of types affects performance of scanner, so for best possible performance support the required types only.
     var supportedTypes:[AVMetadataObject.ObjectType] = [.qr] {
-           didSet {
-               initControl()
-           }
-       }
+        didSet {
+            initControl()
+            setupPreviewLayer()
+        }
+    }
     
     /// Whether to vibrate the device when a code is detected, or not.
     var vibrateWhenCodeDetected:Bool = true
@@ -58,25 +59,21 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        if(previewLayer == nil && captureSession != nil) {
-            setupPreviewLayer()
+        if(previewLayer != nil) {
+            previewLayer.frame = self.layer.bounds
         }
     }
     
     
     //MARK: - Functions
     public func startScanning() {
-        if (captureSession?.isRunning == false) {
-            captureSession.startRunning()
-            self.layer.addSublayer(previewLayer)
-        }
+        captureSession.startRunning()
+        self.layer.addSublayer(previewLayer)
     }
     
     public func stopScanning() {
-        if (captureSession?.isRunning == true) {
-            captureSession.stopRunning()
-            self.layer.sublayers?.removeAll()
-        }
+        captureSession.stopRunning()
+        self.layer.sublayers?.removeAll()
     }
     
     

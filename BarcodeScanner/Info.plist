@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>B-Scanner</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
@@ -61,6 +61,29 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>ScanQR</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Scan QR</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>scan qr barcode</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>qr</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>ScanEAN13</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Scan EAN-13</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>scan ean-13 barcode</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ean13</string>
+		</dict>
 	</array>
 </dict>
 </plist>

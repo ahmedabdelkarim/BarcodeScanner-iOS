@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 
 //TODO: add UI to change vibration enabled/disabled
-//TODO: Quick actions to scan QR, scan EAN-13, scan any barcode, and share.
+//TODO: Quick action to share, and any other useful action
 
-class ViewController: UIViewController, BarcodeScannerDelegate {
+class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
     @IBOutlet weak var scanButtonView: UIView!
@@ -27,6 +27,8 @@ class ViewController: UIViewController, BarcodeScannerDelegate {
         
         barcodeScanner.supportedTypes = [.qr, .ean13]
         barcodeScanner.delegate = self
+        
+        ShortcutItemHandler.delegate = self
         
         print("isScanning: \(barcodeScanner.isScanning)")
     }
@@ -50,6 +52,17 @@ class ViewController: UIViewController, BarcodeScannerDelegate {
         let alert = UIAlertController(title: "Detected Code", message: code, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func scanBarcodeWithType(_ type:AVMetadataObject.ObjectType) {
+        if(self.presentedViewController as? UIAlertController != nil) {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        barcodeScanner.stopScanning()
+        barcodeScanner.supportedTypes = [type]
+        barcodeScanner.startScanning()
+        updateScanButtonState()
     }
     
     
@@ -99,5 +112,17 @@ class ViewController: UIViewController, BarcodeScannerDelegate {
         print("failed to load")
         
         updateScanButtonState()
+    }
+    
+    //MARK: - ShortcutItemHandlerDelegate
+    
+    //TODO: present scanner modally to maintain selected barcode types and make scanning more flexible
+    
+    func scanQR() {
+        scanBarcodeWithType(.qr)
+    }
+    
+    func scanEAN13() {
+        scanBarcodeWithType(.ean13)
     }
 }
