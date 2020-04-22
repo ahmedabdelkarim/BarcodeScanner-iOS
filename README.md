@@ -66,12 +66,6 @@ The demo project comes with a very simple interface, and interacts with vibratio
 
 **User Interface and usage:**
 
-![1](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/1.jpg)
-
-![2](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/2.jpg)
-
-![3](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/3.jpg)
-
-![4](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/4.jpg)
+![1](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/1.jpg)        ![2](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/2.jpg)    ![3](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/3.jpg)  ![4](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/4.jpg)
 
 ![5](https://github.com/ahmedabdelkarim/BarcodeScanner-iOS/blob/master/Screenshots/5.jpg)
