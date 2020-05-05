@@ -138,7 +138,7 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     private func setupPreviewLayer() {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = self.layer.bounds
-        previewLayer.videoGravity = .resizeAspect
+        previewLayer.videoGravity = .resizeAspectFill
     }
     
     private func updateScanningCamera() {

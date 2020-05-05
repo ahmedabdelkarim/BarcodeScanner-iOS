@@ -10,24 +10,24 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Barcode_Scanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="B_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-ht-NCO" customClass="BarcodeScanner" customModule="Barcode_Scanner" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="718"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-ht-NCO" customClass="BarcodeScanner" customModule="B_Scanner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="772"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-hS-6h7">
-                                <rect key="frame" x="0.0" y="762" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="772" width="414" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-fm-nUS">
-                                        <rect key="frame" x="170" y="13" width="74" height="74"/>
+                                        <rect key="frame" x="170" y="8" width="74" height="74"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6D-X2-UrT">
                                                 <rect key="frame" x="5" y="5" width="64" height="64"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="QPm-uZ-zGp"/>
                                                     <constraint firstAttribute="width" constant="64" id="dM4-qj-pvc"/>
@@ -62,7 +62,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-er-cAL" userLabel="Switch Camera Button">
-                                        <rect key="frame" x="340" y="25" width="50" height="50"/>
+                                        <rect key="frame" x="340" y="20" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="1hX-wy-wM9"/>
                                             <constraint firstAttribute="height" constant="50" id="RUs-UK-Ku0"/>
@@ -82,7 +82,7 @@
                                     <constraint firstItem="1ti-er-cAL" firstAttribute="centerY" secondItem="Q7G-hS-6h7" secondAttribute="centerY" id="LC4-IH-Xrs"/>
                                     <constraint firstItem="QQl-fm-nUS" firstAttribute="centerX" secondItem="Q7G-hS-6h7" secondAttribute="centerX" id="QuW-mk-lpa"/>
                                     <constraint firstItem="QQl-fm-nUS" firstAttribute="centerY" secondItem="Q7G-hS-6h7" secondAttribute="centerY" id="cry-je-0iq"/>
-                                    <constraint firstAttribute="height" constant="100" id="d6Z-xJ-E0q"/>
+                                    <constraint firstAttribute="height" constant="90" id="d6Z-xJ-E0q"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -92,7 +92,7 @@
                             <constraint firstItem="c4f-ht-NCO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pob-bV-8Ym"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q7G-hS-6h7" secondAttribute="trailing" id="TGy-m5-qvL"/>
                             <constraint firstAttribute="trailing" secondItem="c4f-ht-NCO" secondAttribute="trailing" id="Twt-Vb-Q2g"/>
-                            <constraint firstItem="c4f-ht-NCO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YXj-mf-6Zq"/>
+                            <constraint firstItem="c4f-ht-NCO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YXj-mf-6Zq"/>
                             <constraint firstItem="Q7G-hS-6h7" firstAttribute="top" secondItem="c4f-ht-NCO" secondAttribute="bottom" id="xt8-3m-fvy"/>
                             <constraint firstItem="Q7G-hS-6h7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z7i-L8-z8A"/>
                         </constraints>
@@ -100,6 +100,7 @@
                     </view>
                     <connections>
                         <outlet property="barcodeScanner" destination="c4f-ht-NCO" id="8oZ-lA-GDR"/>
+                        <outlet property="changeCameraButton" destination="1ti-er-cAL" id="Rl4-Vh-GMz"/>
                         <outlet property="scanButton" destination="o6D-X2-UrT" id="fqg-tn-Zoc"/>
                         <outlet property="scanButtonView" destination="QQl-fm-nUS" id="uYa-or-fXr"/>
                     </connections>

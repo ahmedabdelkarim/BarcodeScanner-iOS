@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+//TODO: handle urls by displaying button to open the url
+//TODO: add UI to select barcode type (qr/ean13/all)
 //TODO: add UI to change vibration enabled/disabled
 //TODO: Quick action to share, and any other useful action
 
@@ -17,6 +19,7 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
     @IBOutlet weak var scanButtonView: UIView!
     @IBOutlet weak var scanButton: UIButton!
+    @IBOutlet weak var changeCameraButton: UIButton!
     
     
     //MARK: - Lifecycle
@@ -24,6 +27,7 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
         super.viewDidLoad()
         
         updateScanButtonState()
+        updateChangeCameraButtonState()
         
         barcodeScanner.supportedTypes = [.qr, .ean13]
         barcodeScanner.delegate = self
@@ -39,12 +43,21 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
         if(barcodeScanner.isScanning) {
             scanButton.setTitle("Stop", for: .normal)
             scanButtonView.layer.borderColor = UIColor.systemRed.cgColor
-            scanButton.backgroundColor = .red
+            scanButton.backgroundColor = .systemRed
         }
         else {
             scanButton.setTitle("Scan", for: .normal)
-            scanButtonView.layer.borderColor = UIColor.systemGreen.cgColor
-            scanButton.backgroundColor = .green
+            scanButtonView.layer.borderColor = UIColor.systemBlue.cgColor
+            scanButton.backgroundColor = .systemBlue
+        }
+    }
+    
+    func updateChangeCameraButtonState() {
+        if(barcodeScanner.isScanning) {
+            changeCameraButton.isEnabled = true
+        }
+        else {
+            changeCameraButton.isEnabled = false
         }
     }
     
@@ -62,7 +75,9 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
         barcodeScanner.stopScanning()
         barcodeScanner.supportedTypes = [type]
         barcodeScanner.startScanning()
+        
         updateScanButtonState()
+        updateChangeCameraButtonState()
     }
     
     
@@ -76,6 +91,7 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
         }
         
         updateScanButtonState()
+        updateChangeCameraButtonState()
         
         print("isScanning: \(barcodeScanner.isScanning)")
     }
@@ -98,6 +114,7 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
         print("isScanning: \(barcodeScanner.isScanning)")
         
         updateScanButtonState()
+        updateChangeCameraButtonState()
         
         displayDetectedCode(code: code)
     }
@@ -106,12 +123,14 @@ class ViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHand
         print("loaded but failed to detect code")
         
         updateScanButtonState()
+        updateChangeCameraButtonState()
     }
     
     func barcodeScannerFailedToLoad(scanner: BarcodeScanner) {
         print("failed to load")
         
         updateScanButtonState()
+        updateChangeCameraButtonState()
     }
     
     //MARK: - ShortcutItemHandlerDelegate
