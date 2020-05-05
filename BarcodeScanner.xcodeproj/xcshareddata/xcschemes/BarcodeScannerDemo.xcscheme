@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F537966923E2001900CD57C6"
-               BuildableName = "Barcode Scanner.app"
+               BuildableName = "B-Scanner.app"
                BlueprintName = "BarcodeScanner"
                ReferencedContainer = "container:BarcodeScanner.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F537966923E2001900CD57C6"
-            BuildableName = "Barcode Scanner.app"
+            BuildableName = "B-Scanner.app"
             BlueprintName = "BarcodeScanner"
             ReferencedContainer = "container:BarcodeScanner.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F537966923E2001900CD57C6"
-            BuildableName = "Barcode Scanner.app"
+            BuildableName = "B-Scanner.app"
             BlueprintName = "BarcodeScanner"
             ReferencedContainer = "container:BarcodeScanner.xcodeproj">
          </BuildableReference>
