@@ -7,10 +7,10 @@ BarcodeScanner is an iOS custom control written in Xcode 11.2 and Swift 5 for sc
 * Scans QR code.
 * Scans EAN-13 code.
 * Supports scanning 10+ other barcode types.
-* Front & back camera support
-* Can change camera while scanning or stopped
-* Delegates to handle detected code, and errors
-* Can be easily reused
+* Front & back camera support.
+* Can change camera while scanning or stopped.
+* Delegates to handle detected code, and errors.
+* Can be easily reused.
 
 **How to use BarcodeScanner?**
 
